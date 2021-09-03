@@ -1,0 +1,40 @@
+var transportation='car'
+var= variable
+transportation= variable name
+= is the operator
+'car' is the variable
+
+// variables are containers that store data
+//camelCaseIsAWayForUsToReadTextWithNoSpaces
+
+Variables
+    case sensative
+    can only start with letters, _ or $
+    use camalCasing - start lower case and first letter of each work is upper case
+    use _ to seperate words
+
+Property of strings
+    Linght property - example: STRING.length will retrun the length of the String
+
+Methods
+toUpperCase()
+    all methods end in "()"
+    Example: greeting.toUpperCase();
+
+    In JavaScript, a primitive (primitive value, primitive data type) is data that is not an 
+    object and has no methods. There are 7 primitive data types: string, number, bigint, 
+    boolean, null, undefined, and symbol.
+        String - a data type used to represent text and are wrapped in single or double quotes
+
+Escape Character = \ 
+    Will make code ignor the next Character
+    example: var sentence = "Mary said, \"I am going to bed.\"";
+    another example: var sentence = 'Mary said, "I\'m going to bed.";
+
+
+typeof
+    This will tell you the type of object following the typeof command
+
+MetaCharacter
+    example: \n = find new line.
+    
