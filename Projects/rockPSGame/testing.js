@@ -17,13 +17,13 @@ const prompt = require("prompt-sync")();
 
 
 // // setting up weapon array
-var weaponOptions = ["gun","bear","human"]
+var weaponOptions = ["gun", "bear", "human"]
 
 let userInput = prompt("Choose your weapon! bear, human or gun? ").toLowerCase();
 if (weaponOptions.indexOf(userInput) == -1) {
-    console.log("bad choice")
+  console.log("bad choice")
 } else {
-    console.log("good choice")
+  console.log("good choice")
 }
 
 // // // getting computers choice
@@ -36,3 +36,33 @@ if (weaponOptions.indexOf(userInput) == -1) {
 
 // let computerChoise = weaponOptions[Math.floor(Math.random() * weaponOptions.length)];
 // console.log(computerChoise)
+
+
+function determineWinner(userInput, computerChoice) {
+  console.log("who is the winner?",userInput,computerChoice)
+  if (userInput === computerChoice) {
+      console.log( "Tie");
+  } else {
+      if (userInput === "human") {
+          if (computerChoice === "bear") {
+              console.log( "you lose"
+          } else {
+              console.log( "you WIN");
+          }
+      }
+      if (userInput === "gun") {
+          if (computerChoice === "human") {
+              console.log( "you lose");
+          } else {
+              console.log( "you WIN");
+          }
+      }
+      if (userInput === "bear") {
+          if (computerChoice === "gun") {
+              console.log( "you lose");
+          } else {
+              console.log( "you WIN");
+          }
+      }
+  }
+}

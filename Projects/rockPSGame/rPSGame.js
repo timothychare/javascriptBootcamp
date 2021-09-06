@@ -1,61 +1,82 @@
 // Rock paper scissors game but its bear, gun, human.
 
 // using prompt-sync for console prompts. Remember to use ` with variables
-const prompt = require('prompt-sync')({sigint: true});
+const prompt = require('prompt-sync')({
+    sigint: true
+});
 
 //setting up my arrays
-var emojis = ["😂", "🤣", "😒", "😁","😎", "😜", "👏", "😤","🔫","🐻","🧔"];
+var emojis = ["😂", "🤣", "😒", "😁", "😎", "😜", "👏", "😤", "🔫", "🐻", "🧔"];
 var gunEmoji = emojis[8];
 var bearEmoji = emojis[9];
 var humanEmoji = emojis[10];
-var weaponOptions = ["gun","bear","human"];
+var weaponOptions = ["gun", "bear", "human"];
+
+
+
+
+
+
+
 
 // getting computers choice
-let computerChoice = weaponOptions[Math.floor(Math.random() * weaponOptions.length)];
+var computerChoice = weaponOptions[Math.floor(Math.random() * weaponOptions.length)];
 
-function getUserChoice(userInput) {
-    userInput = prompt("Choose your weapon! bear, human or gun? ").toLowerCase();
+function getUserChoice() {
+    console.log("Weapons available: ","Bear", bearEmoji,"Human",humanEmoji,"Gun",gunEmoji)
+    userInput = prompt("Choose your weapon! ").toLowerCase();
     if (weaponOptions.indexOf(userInput) == -1) {
-        console.log("bad choice")
+        console.log("bad choice");
     } else {
-    console.log(userInput,"!? Very Powerful 😤 ")
-    return userInput, " VS ", computerChoice;
+        console.log(userInput, "!? Very Powerful 😤 ");
+        console.log(userInput, " VS ", computerChoice);
     }
-}
+    return userInput;
+};
 
-function determineWinner(weapon,computerChoice) {
-    if (weapon === computerChoice) {
-        return "Tie";
-    }
-    if (weapon == "human") {
-        if (computerChoice == "bear") {
-            return "you lose"
-        } else {
-            return "you WIN"
-        }
-    }
-    if (weapon == "gun") {
-        if (computerChoice == "human") {
-            return "you lose"
-        } else {
-            return "you WIN"
-        }
-    }
-    if (weapon == "bear") {
-        if (computerChoice == "gun") {
-            return "you lose"
-        } else {
-            return "you WIN"
-        }
-    }
-}
+
+
+
+
+playGame();
 
 function playGame() {
     getUserChoice();
-    determineWinner();
+    determineWinner(userInput, computerChoice);
 }
 
-playGame();
+
+
+
+function determineWinner(userInput, computerChoice) {
+    console.log("who is the winner?",userInput,computerChoice)
+    if (userInput === computerChoice) {
+        console.log( "Tie");
+    } else {
+        if (userInput === "human") {
+            if (computerChoice === "bear") {
+                console.log( "you lose");
+            } else {
+                console.log( "you WIN");
+            }
+        }
+        if (userInput === "gun") {
+            if (computerChoice === "human") {
+                console.log( "you lose");
+            } else {
+                console.log( "you WIN");
+            }
+        }
+        if (userInput === "bear") {
+            if (computerChoice === "gun") {
+                console.log( "you lose");
+            } else {
+                console.log( "you WIN");
+            }
+        }
+    }
+    playGame();
+  }
 
 // //checking valid choice
 // if (weapon == "gun") {
@@ -76,7 +97,5 @@ playGame();
 //get random emoji function
 function randomEmoji() {
     var randomEmoji = emojis[Math.floor(Math.random() * 8)];
-    return(randomEmoji);
+    return (randomEmoji);
 }
-
-
