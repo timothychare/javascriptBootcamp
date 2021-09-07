@@ -23,5 +23,3 @@ function inputCaloriesByDay(day) {
         console.log("inpute day of week")
     }
 }
-
-test
