@@ -12,18 +12,8 @@ var bearEmoji = emojis[9];
 var humanEmoji = emojis[10];
 var weaponOptions = ["gun", "bear", "human"];
 
-
-
-
-
-
-
-
-// getting computers choice
-
-
 function getUserChoice() {
-    console.log("Weapons available: ","Bear", bearEmoji,"Human",humanEmoji,"Gun",gunEmoji + "\n");
+    console.log("Weapons available: ", "Bear", bearEmoji, "Human", humanEmoji, "Gun", gunEmoji + "\n");
     userInput = prompt("Choose your weapon! ").toLowerCase();
     if (weaponOptions.indexOf(userInput) == -1) {
         console.log("bad choice");
@@ -46,7 +36,7 @@ function playGame() {
     getUserChoice();
     getComputerChoice();
     setTimeout(determineWinner, 10000);
-    determineWinner(userInput,computerChoice);
+    determineWinner(userInput, computerChoice);
 }
 
 
@@ -54,48 +44,32 @@ function determineWinner() {
     console.log("who is the winner?" + "\n")
     console.log(userInput, " VS ", computerChoice + "\n");
     if (userInput === computerChoice) {
-        console.log( "You are evenly matched!" + "\n" + "TIE!" + "\n");
+        console.log("You are evenly matched!" + "\n" + "TIE!" + "\n");
     } else {
         if (userInput === "human") {
             if (computerChoice === "bear") {
-                console.log( "bear mauls human!" + "\n","You Lose!" + "\n");
+                console.log("bear mauls human!" + "\n", "You Lose!" + "\n");
             } else {
-                console.log( "You Disarmed",computerChoice + "!!!" + "\n");
+                console.log("You Disarmed", computerChoice + "!!!" + "\n");
             }
         }
         if (userInput === "gun") {
             if (computerChoice === "human") {
-                console.log( "human disarms gun!" + "\n","You Lose!" + "\n");
+                console.log("human disarms gun!" + "\n", "You Lose!" + "\n");
             } else {
-                console.log( "You Shot",computerChoice + "!!!" + "\n");
+                console.log("You Shot", computerChoice + "!!!" + "\n");
             }
         }
         if (userInput === "bear") {
             if (computerChoice === "gun") {
-                console.log( "gun shoots bear!" + "\n","You Lose!" + "\n");
+                console.log("gun shoots bear!" + "\n", "You Lose!" + "\n");
             } else {
-                console.log( "You MAULED",computerChoice + "!!!" + "\n");
+                console.log("You MAULED", computerChoice + "!!!" + "\n");
             }
         }
     }
     playGame();
-  }
-
-// //checking valid choice
-// if (weapon == "gun") {
-//     console.log(gunEmoji," VS ",computerChoice)
-// } else if (weapon == "bear") {
-//     console.log(bearEmoji," VS ",computerChoice)
-// } else if (weapon == "human") {
-//     console.log(humanEmoji," VS ",computerChoice)
-// } else {
-//     console.log("you fool, You cannot use that weapon here!")
-// }
-
-// // want to check if the weapon is in the emoji array to return emojis
-// function isInArray(value, array) {
-//     return array.indexOf(value) > -1;
-//   }
+}
 
 //get random emoji function
 function randomEmoji() {
