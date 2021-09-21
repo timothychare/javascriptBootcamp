@@ -1,3 +1,4 @@
+// instructor left a lot of issues in this, Ill finish it later
 // given a string of words adn return the length of the longest word.
 // I should break the string into an array, remove any punctuation, then compare each words length to one another and return the largest word.
 // Regex:

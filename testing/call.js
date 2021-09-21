@@ -28,8 +28,8 @@ console.log("\n","this and call lab","\n");
 // call - individual arguments
 // apply - array of arguments
 
-var people1 = {name:"Timothy"};
-var people2 = {name:"Abigail"};
+var people1 = {name:"apeboy"};
+var people2 = {name:"babigail"};
 var people3 = {name:"WTF?"};
 
 var myLanguages = function (lang1, lang2, lang3) {
