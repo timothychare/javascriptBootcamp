@@ -8,5 +8,9 @@ function alphaOrder(str) {
     return alphaOrdered
 };
 
+
+function alphaOrderedOneStep(str) {
+    return str.toLowerCase().split('').sort().join('');
+}
 console.log(alphaOrder("ApeBoy"));
-console.log(alphaOrder("Bbabigail"));
+console.log(alphaOrderedOneStep("Bbabigail"));
