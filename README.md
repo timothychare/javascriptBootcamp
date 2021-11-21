@@ -23,3 +23,19 @@ javascriptBootcamp
   * setItem('key','value') - creates an item in local storage from a key value pair, Each key has to be unique 
   * removeItem() - remove an item by key
   * clear() - clears all local storage IE localStorage.clear()
+
+## selecting HTML elements
+
+### with css
+
+```css
+.classname {
+  // styles go here
+}
+```
+
+### with javascript
+
+```Javascript
+document.querySelector('.classname')
+```
