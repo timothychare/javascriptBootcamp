@@ -9,4 +9,6 @@
 ## DOM Methods
 
 * actions you can preform on HTML elements.
-* 
+* appendChild() - adds a node to the end of the list of children of a specific parent node.
+* removeChild() - removes a child node from the DOM
+* createElement() - creates the HTML element specified by the tagName 
