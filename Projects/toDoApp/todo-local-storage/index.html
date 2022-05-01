@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>ToDoTracker</title>
+    <style>
+        body {
+            padding: 15px;
+            background-color: black;
+            font-family: sans-serif;
+            background-size:auto ;
+            
+        }
+        #title {
+            padding: 10px;
+            font-size: 36px;
+            border:2px solid  white;
+            width: 250px;
+        }
+        #todo-header {
+            font-size: 24px;
+        }
+        ul {
+            list-style: square;
+            padding-left: 10;
+            width: 250;
+        }
+        /* li {
+            color: white;
+            background-color: gray;
+            padding: 15;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        } */
+    </style>
+</head>
+
+
+<body>
+    <h1 id='title'>ToDo Tracker</h1>
+
+    <form>
+        <input type='text' id='user-todo' placeholder='New Todo' required>
+    </form>
+
+    <h2 id='todo-header'>Todos</h2>
+    <ul>
+
+    </ul>
+
+    <button id='clear all'>Clear All</button>
+
+</body>
+
+
+<script>
+    var input = document.getElementById('user-todo');
+    var form = document.querySelector('form');
+    var button = document.querySelector('button');
+    var todosList = document.querySelector('ul');
+    //var todosArray = [];
+    var todosArray = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
+
+    //passes todos to local storage as a JSON string because thats the form storage requires
+    localStorage.setItem('todos', JSON.stringify(todosArray));
+
+    //will return a parsed list of items in local storage
+    var storage = JSON.parse(localStorage.getItem('todos'));
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // adding the input value to the todosarray
+        todosArray.push(input.value);
+        //now adding the entire todosArray to local storage
+        localStorage.setItem('todos', JSON.stringify(todosArray));
+        todoMaker(input.value);
+        input.value = '' 
+    });
+
+    var todoMaker = function (text) {
+        var todo = document.createElement('li');
+        todo.textContent = text;
+        todosList.appendChild(todo);
+    };
+
+    // clear all on button click
+    button.addEventListener('click', function () {
+        while (todosList.childElementCount > 0) {
+            todosList.removeChild(todosList.firstElementChild);
+        }
+        localStorage.clear();
+    });
+
+
+    for (var i = 0; i < storage.length; i++) {
+        todoMaker(storage[i]);
+    };
+
+    
+
+    // not using local storage below
+
+    // // add item to form
+    // form.addEventListener('submit', function(e) {
+    //     e.preventDefault();
+    //     console.log('User input was ' + input.value);
+    //     todoMaker(input.value);
+    //     input.value = ''        
+    // });
+
+    // var todoMaker = function(text) {
+    //     var todo = document.createElement('li');
+    //     todo.textContent = text;
+    //     todosList.appendChild(todo);
+    // };
+
+    // // clear all on button click
+    // button.addEventListener('click', function () {
+    //     while (todosList.childElementCount > 0) {
+    //         todosList.removeChild(todosList.firstElementChild);
+    //     }
+    // });
+</script>
+
+</html>
